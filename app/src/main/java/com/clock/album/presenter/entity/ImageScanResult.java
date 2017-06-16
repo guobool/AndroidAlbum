@@ -13,7 +13,7 @@ import java.util.Map;
 public class ImageScanResult {
 
     /**
-     * 系统所有有图片的文件夹
+     * 系统所有图片的文件夹
      */
     private List<File> albumFolderList;
     /**

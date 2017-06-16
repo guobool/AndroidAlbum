@@ -60,7 +60,7 @@ public class AlbumGridAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         AlbumViewHolder holder = null;
-        if (convertView == null) {
+        if (convertView == null) {// 只有Holder不存在时才创建，否则重复使用
             holder = new AlbumViewHolder();
             convertView = View.inflate(parent.getContext(), R.layout.album_grid_item, null);
 
@@ -79,10 +79,12 @@ public class AlbumGridAdapter extends BaseAdapter {
 
         }
 
-        ImageInfo imageInfo = mImageInfoList.get(position);
+        ImageInfo imageInfo = mImageInfoList.get(position); // 获得图片信息
+        // 这里并没有使用MVP架构，而是直接调用了底层的
         ImageLoaderWrapper.DisplayOption displayOption = new ImageLoaderWrapper.DisplayOption();
         displayOption.loadingResId = R.mipmap.img_default;
         displayOption.loadErrorResId = R.mipmap.img_error;
+
         mImageLoaderWrapper.displayImage(holder.albumItem, imageInfo.getImageFile(), displayOption);
 
         holder.imageSelectedCheckBox.setChecked(imageInfo.isSelected());

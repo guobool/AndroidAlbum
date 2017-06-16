@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.clock.album.crash.SimpleCrashReporter;
 import com.clock.album.imageloader.UniversalAndroidImageLoader;
-import com.clock.album.manager.FolderManager;
+import com.clock.album.model.FolderManager;
 import com.clock.utils.crash.CrashExceptionHandler;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -30,7 +30,7 @@ public class AlbumApplication extends Application {
     }
 
     /**
-     * 配置奔溃信息的搜集
+     * 配置崩溃溃信息的搜集
      */
     private void configCollectCrashInfo() {
         CrashExceptionHandler crashExceptionHandler = new CrashExceptionHandler(this, FolderManager.getCrashLogFolder());

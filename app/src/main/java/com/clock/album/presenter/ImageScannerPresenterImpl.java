@@ -36,5 +36,4 @@ public class ImageScannerPresenterImpl implements ImageScannerPresenter {
             }
         });
     }
-
 }

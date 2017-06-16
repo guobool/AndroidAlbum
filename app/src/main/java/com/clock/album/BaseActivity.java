@@ -1,4 +1,4 @@
-package com.clock.album.ui.activity.base;
+package com.clock.album;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.clock.album.ui;
+package com.clock.album.main;
 
 import android.content.Intent;
 import android.os.Bundle;

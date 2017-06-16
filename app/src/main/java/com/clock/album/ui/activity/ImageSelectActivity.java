@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.clock.album.R;
 import com.clock.album.imageloader.ImageLoaderFactory;
 import com.clock.album.imageloader.ImageLoaderWrapper;
-import com.clock.album.ui.activity.base.BaseActivity;
+import com.clock.album.BaseActivity;
 import com.clock.utils.common.RuleUtils;
 
 import java.io.File;

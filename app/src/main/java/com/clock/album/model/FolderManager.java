@@ -1,4 +1,4 @@
-package com.clock.album.manager;
+package com.clock.album.model;
 
 import android.os.Environment;
 
@@ -29,10 +29,11 @@ public class FolderManager {
      * @return 成功则返回目录，失败则返回null
      */
     public static File getAppFolder() {
+        // 首先判断SD卡是否被挂载
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-
+            // 在应用的目录下创建一个album目录
             File appFolder = new File(Environment.getExternalStorageDirectory(), APP_FOLDER_NAME);
-            return createOnNotFound(appFolder);
+            return createOnNotFound(appFolder);//
 
         } else {
             return null;
@@ -56,24 +57,24 @@ public class FolderManager {
     }
 
     /**
-     * 创建目录
+     * 创建目录，存在则直接返回。
      *
      * @param folder
      * @return 创建成功则返回目录，失败则返回null
      */
     private static File createOnNotFound(File folder) {
-        if (folder == null) {
+        if (folder == null) { // 没有要创建的目录，则直接返回
             return null;
         }
 
-        if (!folder.exists()) {
+        if (!folder.exists()) { // 不存在则先创建目录
             folder.mkdirs();
         }
 
-        if (folder.exists()) {
+        if (folder.exists()) { // 创建成功则返回
             return folder;
         } else {
-            return null;
+            return null; // 失败返回空。
         }
     }
 }

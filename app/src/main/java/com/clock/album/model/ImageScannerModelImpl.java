@@ -47,16 +47,6 @@ public class ImageScannerModelImpl implements ImageScannerModel {
 
     private OnScanImageFinish mOnScanImageFinish;
 
-    private Handler mRefreshHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            ImageScanResult imageScanResult = (ImageScanResult) msg.obj;
-            if (mOnScanImageFinish != null && imageScanResult != null) {
-                mOnScanImageFinish.onFinish(imageScanResult);
-            }
-        }
-    };
-
     @Override
     public void startScanImage(final Context context, LoaderManager loaderManager, final OnScanImageFinish onScanImageFinish) {
         mOnScanImageFinish = onScanImageFinish;
@@ -110,11 +100,7 @@ public class ImageScannerModelImpl implements ImageScannerModel {
                     imageScanResult.setAlbumFolderList(albumFolderList);
                     imageScanResult.setAlbumImageListMap(albumImageListMap);
 
-                    //Fix CursorLoader Bug
-                    //http://stackoverflow.com/questions/7746140/android-problems-using-fragmentactivity-loader-to-update-fragmentstatepagera
-                    Message message = mRefreshHandler.obtainMessage();
-                    message.obj = imageScanResult;
-                    mRefreshHandler.sendMessage(message);
+                    onScanImageFinish.onFinish(imageScanResult);
 
                 }
 

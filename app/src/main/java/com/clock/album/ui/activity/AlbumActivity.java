@@ -22,7 +22,7 @@ import com.clock.album.entity.AlbumFolderInfo;
 import com.clock.album.entity.ImageInfo;
 import com.clock.album.presenter.ImageScannerPresenter;
 import com.clock.album.presenter.ImageScannerPresenterImpl;
-import com.clock.album.ui.activity.base.BaseActivity;
+import com.clock.album.BaseActivity;
 import com.clock.album.ui.fragment.AlbumDetailFragment;
 import com.clock.album.ui.fragment.AlbumFolderFragment;
 import com.clock.album.view.AlbumView;
@@ -91,6 +91,7 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
             }
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_EXTERNAL_STORAGE_CODE);
         } else {
+            // 开始扫描图片
             mImageScannerPresenter.startScanImage(getApplicationContext(), getSupportLoaderManager());
         }
 

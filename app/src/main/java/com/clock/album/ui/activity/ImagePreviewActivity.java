@@ -18,7 +18,7 @@ import com.clock.album.R;
 import com.clock.album.entity.ImageInfo;
 import com.clock.album.imageloader.ImageLoaderFactory;
 import com.clock.album.imageloader.ImageLoaderWrapper;
-import com.clock.album.ui.activity.base.BaseActivity;
+import com.clock.album.BaseActivity;
 
 import java.io.Serializable;
 import java.util.List;
